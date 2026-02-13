@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pentru Delia ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Setări generale de centrare */
+        body { 
+            font-family: 'Poppins', sans-serif; 
+            background-color: #fff0f3; 
+            background-image: radial-gradient(#ffdde1 1px, transparent 1px);
+            background-size: 20px 20px;
+            color: #333; 
+            overflow-x: hidden; 
+            margin: 0; 
+            padding: 0; 
+            display: flex;
+            flex-direction: column;
+            align-items: center; 
+            min-height: 100vh;
+        }
+
+        #main-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center; 
+            width: 100%;
+            max-width: 1200px;
+            padding-bottom: 50px;
+        }
+        
+        h1.main-title { 
+            font-family: 'Dancing Script', cursive;
+            color: #d63031; 
+            margin-top: 60px; 
+            font-size: 4em; 
+            text-align: center;
+            padding: 0 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        p.subtitle {
+            font-size: 1.3em;
+            color: #636e72;
+            margin-bottom: 60px;
+            font-weight: 300;
+            text-align: center;
+            max-width: 600px;
+            padding: 0 20px;
+        }
+
+        h2.collection-title {
+            font-family: 'Dancing Script', cursive;
+            color: #e84393;
+            font-size: 2.5em;
+            margin-top: 60px;
+            margin-bottom: 40px;
+            text-align: center;
+            position: relative;
+        }
+        
+        h2.collection-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 3px;
+            background: #e84393;
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Galerie Polaroid */
+        .gallery { 
+            display: flex; 
+            flex-wrap: wrap; 
+            justify-content: center; 
+            align-items: center;
+            gap: 40px; 
+            width: 100%;
+            padding: 0 20px; 
+            box-sizing: border-box;
+        }
+
+        .polaroid { 
+            background: white; 
+            padding: 15px 15px 30px 15px; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15); 
+            transform: rotate(-2deg); 
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+            width: 240px; 
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        .polaroid:nth-child(even) { transform: rotate(3deg) translateY(10px); }
+        .polaroid:nth-child(3n) { transform: rotate(-4deg) translateY(-5px); }
+        .polaroid:hover { 
+            transform: scale(1.15) rotate(0deg) !important; 
+            z-index: 20; 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.25); 
+        }
+        
+        .polaroid img { 
+            width: 100%; 
+            height: 300px; 
+            object-fit: cover; 
+            border-radius: 2px; 
+        }
+
+        .polaroid p {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.6em;
+            margin: 20px 0 0 0;
+            color: #444;
+        }
+
+        .polaroid.special {
+            width: 280px;
+            transform: rotate(0deg);
+            border: 4px solid #e84393;
+        }
+        .polaroid.special img {
+            height: 350px;
+        }
+
+        /* Zona Întrebării */
+        .question-container { 
+            margin: 80px 0 100px 0; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 90%;
+            max-width: 700px;
+            padding: 50px 30px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 25px;
+            box-shadow: 0 15px 35px rgba(214, 48, 49, 0.2);
+            text-align: center;
+            border: 2px solid #ffdde1;
+            position: relative; /* Important pentru sticker */
+        }
+
+        .question { 
+            font-size: 2.3em; 
+            font-weight: 600;
+            color: #d63031; 
+            margin-bottom: 40px; 
+            line-height: 1.3;
+        }
+
+        .buttons-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            height: 60px;
+            width: 100%;
+        }
+
+        .btn { 
+            font-size: 1.5em; 
+            padding: 15px 45px; 
+            border: none; 
+            border-radius: 50px; 
+            cursor: pointer; 
+            font-weight: bold; 
+            transition: 0.3s; 
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .btn-yes { 
+            background: linear-gradient(45deg, #ff4757, #ff6b81);
+            color: white; 
+            box-shadow: 0 10px 25px rgba(255, 71, 87, 0.5); 
+            z-index: 5;
+        }
+
+        .btn-yes:hover { 
+            transform: scale(1.1) translateY(-5px); 
+            box-shadow: 0 15px 30px rgba(255, 71, 87, 0.6);
+        }
+
+        .btn-no { 
+            background-color: #ffffff; 
+            color: #747d8c; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border: 2px solid #f1f2f6;
+            transition: left 0.3s ease, top 0.3s ease; 
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Stiluri pentru STICKER "Hehehe" */
+        #hehe-sticker {
+            position: fixed;
+            width: 180px; /* Mărimea stickerului */
+            display: none; /* Ascuns inițial */
+            z-index: 100; /* Peste orice altceva */
+            pointer-events: none; /* Să nu blocheze click-urile */
+            filter: drop-shadow(0 5px 15px rgba(0,0,0,0.2));
+        }
+
+        /* Animația de apariție a stickerului */
+        .pop-in {
+            animation: popSticker 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+
+        @keyframes popSticker {
+            0% { transform: scale(0) rotate(-20deg); opacity: 0; }
+            100% { transform: scale(1) rotate(0deg); opacity: 1; }
+        }
+
+
+        /* Mesaj Succes */
+        #success { 
+            display: none; 
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            width: 100%;
+            background: #ffdde1;
+            text-align: center;
+        }
+        
+        #success h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4.5em; 
+            color: #d63031; 
+            padding: 20px;
+            margin: 0;
+            animation: popInText 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+        }
+        
+        #success p {
+            font-size: 1.5em;
+            color: #d63031;
+            margin-top: 10px;
+            animation: fadeIn 2s ease-in;
+        }
+
+        @keyframes popInText { 
+            0% { transform: scale(0); opacity: 0; } 
+            100% { transform: scale(1); opacity: 1; } 
+        }
+        @keyframes fadeIn { 
+            0% { opacity: 0; } 
+            100% { opacity: 1; } 
+        }
+    </style>
+</head>
+<body>
+
+    <div id="main-content">
+        <h1 class="main-title">Pentru Delia... ❤️</h1>
+        <p class="subtitle">Am adunat câteva momente care îmi fac inima să bată mai tare. Ești pregătită?</p>
+
+        <h2 class="collection-title">Noi și nebuniile noastre 😄</h2>
+        <div class="gallery">
+            <div class="polaroid">
+                <img src="WhatsApp Image 2026-02-11 at 21.23.46.jpeg" alt="Noi zambind">
+                <p>Acel zâmbet...</p>
+            </div>
+            <div class="polaroid">
+                <img src="WhatsApp Image 2026-02-11 at 21.23.46(1).jpeg" alt="Echipa">
+                <p>Echipa perfectă</p>
+            </div>
+            <div class="polaroid">
+                <img src="WhatsApp Image 2026-02-11 at 21.23.46(2).jpeg" alt="Linistea">
+                <p>Liniștea mea</p>
+            </div>
+             <div class="polaroid">
+                <img src="WhatsApp Image 2026-02-11 at 21.23.46(3).jpeg" alt="Ochi">
+                <p>Ochii ăștia...</p>
+            </div>
+            <div class="polaroid">
+                <img src="WhatsApp Image 2026-02-11 at 21.23.46(4).jpeg" alt="Aproape">
+                <p>Tu și eu</p>
+            </div>
+        </div>
+
+        <h2 class="collection-title">Momente magice ✨</h2>
+        <div class="gallery">
+            <div class="polaroid">
+                <img src="WhatsApp Image 2026-02-13 at 02.09.19.jpeg" alt="La teatru">
+                <p>Noi, eleganți</p>
+            </div>
+            <div class="polaroid">
+                <img src="WhatsApp Image 2026-02-13 at 02.07.17.jpeg" alt="Sub lumini">
+                <p>Lumea noastră</p>
+            </div>
+            <div class="polaroid">
+                <img src="WhatsApp Image 2026-02-13 at 02.07.57.jpeg" alt="Fericire">
+                <p>Fericire</p>
+            </div>
+            <div class="polaroid">
+                <img src="WhatsApp Image 2026-02-13 at 02.06.54.jpeg" alt="Sarut">
+                <p>Magic.</p>
+            </div>
+            <div class="polaroid">
+                <img src="WhatsApp Image 2026-02-13 at 02.06.08.jpeg" alt="Selfie noaptea">
+                <p>New Year</p>
+            </div>
+        </div>
+
+        <h2 class="collection-title" style="color: #d63031; margin-top: 80px;">Pur și simplu... TU. 💖</h2>
+        <div class="gallery">
+            <div class="polaroid special">
+                <img src="WhatsApp Image 2026-02-13 at 02.05.43.jpeg" alt="Delia portret">
+                <p>Ești superbă.</p>
+            </div>
+        </div>
+
+        <div class="question-container">
+            <div class="question">Așa că, Delia, am o singură întrebare...<br>Vrei să fii "My Valentine"? 🥰</div>
+            <div class="buttons-wrapper">
+                <button class="btn btn-yes" onclick="sayYes()">DA! ❤️</button>
+                <button class="btn btn-no" id="btn-no">Nu...</button>
+            </div>
+        </div>
+    </div>
+
+    <img src="image_12.png" id="hehe-sticker" alt="Hehehe sticker">
+
+    <div id="success">
+        <h2>Știam eu! 🥰</h2>
+        <p>Te iubesc enorm! Pregătește-te pentru o zi specială! 🎉</p>
+    </div>
+
+    <script>
+        const noBtn = document.getElementById('btn-no');
+        const sticker = document.getElementById('hehe-sticker');
+        let isFirstHover = true;
+        let stickerTimeout;
+
+        function dodgeButton() {
+            if (isFirstHover) {
+                noBtn.style.width = noBtn.offsetWidth + 'px';
+                noBtn.style.height = noBtn.offsetHeight + 'px';
+                noBtn.style.position = 'fixed';
+                isFirstHover = false;
+            }
+
+            const windowWidth = window.innerWidth;
+            const windowHeight = window.innerHeight;
+            const btnWidth = noBtn.offsetWidth;
+            const btnHeight = noBtn.offsetHeight;
+
+            // Calculăm noua poziție a butonului
+            let newX = Math.random() * (windowWidth - btnWidth - 40) + 20;
+            let newY = Math.random() * (windowHeight - btnHeight - 40) + 20;
+
+            noBtn.style.left = `${newX}px`;
+            noBtn.style.top = `${newY}px`;
+
+            // --- LOGICA PENTRU STICKER ---
+            // Resetăm timer-ul dacă există deja
+            clearTimeout(stickerTimeout);
+            
+            // Resetăm animația
+            sticker.classList.remove('pop-in');
+            void sticker.offsetWidth; // Hack pentru a forța reflow-ul CSS
+            sticker.classList.add('pop-in');
+
+            // Poziționăm stickerul lângă noua locație a butonului (puțin deasupra și la dreapta)
+            sticker.style.left = (newX + btnWidth - 50) + 'px';
+            sticker.style.top = (newY - 120) + 'px';
+            
+            // Îl facem vizibil
+            sticker.style.display = 'block';
+
+            // Îl ascundem după 1.2 secunde
+            stickerTimeout = setTimeout(() => {
+                 sticker.style.display = 'none';
+            }, 1200);
+        }
+
+        noBtn.addEventListener('mouseover', dodgeButton);
+        noBtn.addEventListener('touchstart', function(e) {
+            e.preventDefault(); 
+            dodgeButton();
+        });
+
+        function sayYes() {
+            // Ascundem și stickerul dacă e vizibil când apasă DA
+            clearTimeout(stickerTimeout);
+            sticker.style.display = 'none';
+
+            document.getElementById('main-content').style.opacity = '0';
+            setTimeout(() => {
+                document.getElementById('main-content').style.display = 'none';
+                document.getElementById('success').style.display = 'flex';
+                createHearts();
+            }, 300);
+        }
+
+        function createHearts() {
+            const colors = ['#ff4757', '#ff6b81', '#e84393', '#d63031', '#fd79a8'];
+            for(let i = 0; i < 100; i++) {
+                let heart = document.createElement('div');
+                heart.innerHTML = '❤';
+                heart.style.position = 'fixed';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.top = '-10vh';
+                heart.style.fontSize = (Math.random() * 30 + 15) + 'px';
+                heart.style.color = colors[Math.floor(Math.random() * colors.length)];
+                heart.style.zIndex = '1000';
+                heart.style.textShadow = '0 0 5px rgba(255,255,255,0.5)';
+                heart.style.animation = `fall ${Math.random() * 4 + 3}s linear forwards`;
+                document.body.appendChild(heart);
+            }
+        }
+
+        const style = document.createElement('style');
+        style.innerHTML = `
+            @keyframes fall {
+                0% { transform: translateY(0) rotate(0deg) scale(1); opacity: 1; }
+                100% { transform: translateY(110vh) rotate(720deg) scale(0.5); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
